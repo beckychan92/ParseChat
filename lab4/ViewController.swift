@@ -15,10 +15,10 @@ class ViewController: UIViewController {
         var user = PFUser()
         user.username = "myUsername"
         user.password = "myPassword"
-//        user.email = "email@example.com"
-//        
-//        user["phone"] = "123-456-7890"
-//        
+        user.email = "email@example.com"
+        
+        user["phone"] = "123-456-7890"
+        
         user.signUpInBackground { (success: Bool, error: Error?) in
             if let error = error {
                 let errorString = error.localizedDescription
