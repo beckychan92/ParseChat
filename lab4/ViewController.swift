@@ -11,8 +11,8 @@ import Parse
 
 class ViewController: UIViewController {
 
-    @IBAction func signUp(_ sender: Any) {
-        var user = PFUser()
+    func signUp(_ sender: Any) {
+        let user = PFUser()
         user.username = "myUsername"
         user.password = "myPassword"
         user.email = "email@example.com"
@@ -22,12 +22,19 @@ class ViewController: UIViewController {
         user.signUpInBackground { (success: Bool, error: Error?) in
             if let error = error {
                 let errorString = error.localizedDescription
-                
+                print("ok")
+            
                 }else {
                     print("it worked")
             }
         }
     }
+    
+    
+    
+    @IBOutlet weak var signUp2: UIButton!
+    
+    
     
     
     @IBAction func login(_ sender: Any) {
@@ -36,7 +43,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        signUp2.addTarget(self, action: #selector(signUp), for: .touchUpInside)
+
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
