@@ -33,12 +33,38 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var signUp2: UIButton!
+    @IBOutlet weak var login: UIButton!
     
     
+    func login(_ sender: Any) {
+        var user = PFUser()
+        user.username = "myUsername"
+        user.password = "myPassword"
+        user.email = "email@example.com"
+        
+        user["phone"] = "123-456-7890"
+        
+        let username = "abc"
+        
+        
     
     
-    @IBAction func login(_ sender: Any) {
+        PFUser.logInWithUsername(inBackground: nil, password: "mypassword", block: (user: PFUser?, error: Error?)) {
+//            (success: Bool, error: Error?) in
+            if let error = error {
+                let errorString = error.localizedDescription
+                print("ok")
+                
+            }else {
+                print("it worked")
+        }
+        
     }
+//    }
+//
+//
+//
+//}
     
     
     override func viewDidLoad() {
@@ -58,3 +84,4 @@ class ViewController: UIViewController {
 
 }
 
+}
